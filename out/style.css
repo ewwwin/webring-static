@@ -2,6 +2,10 @@
   font-family: "SOADialogue";
   src: url("font/SOADialogue.ttf") format(truetype);
 }
+@font-face {
+  font-family: "SOAUI";
+  src: url("font/SOAUI.ttf") format(truetype);
+}
 :root {
   --pixel-scale: 2;
   font-size: calc(var(--pixel-scale) * 1px);
@@ -17,8 +21,15 @@ body {
   background: var(--gradient-horiz-stripes);
   min-height: 100vh;
   margin: 0;
-  padding: 4rem;
-  font-size: 8rem;
+  padding: 9rem 4rem;
+  font-family: "SOAUI";
+  font-size: 10rem;
+  color: white;
+}
+
+main {
+  max-width: 256rem;
+  margin: 0 auto;
 }
 
 .textbox {
@@ -107,7 +118,8 @@ body {
 .textbox__text {
   margin: 2rem;
   width: 224rem;
-  height: 34rem;
+  min-height: 34rem;
+  max-width: calc(100vw - 34rem);
   box-shadow: 0 2rem 0 -1rem var(--textbox-bg-fade), 0 -2rem 0 -1rem var(--textbox-bg-fade), 2rem 0 0 -1rem var(--textbox-bg-fade), -2rem 0 0 -1rem var(--textbox-bg-fade), inset 0 0 0 1rem var(--textbox-bg-fade);
   background: var(--textbox-bg);
   padding: 0 1rem;

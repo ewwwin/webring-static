@@ -1,7 +1,12 @@
 // dialogue font (the taller one)
 @font-face {
 	font-family: "SOADialogue";
-	src: url("https://i.eritbh.me/temp/SOADialogue-10-2-6.ttf") format(truetype);
+	src: url("font/SOADialogue.ttf") format(truetype);
+}
+
+@font-face {
+	font-family: "SOAUI";
+	src: url("font/SOAUI.ttf") format(truetype);
 }
 
 :root {
@@ -26,9 +31,16 @@ body {
 	background: var(--gradient-horiz-stripes);
 	min-height: 100vh;
 	margin: 0;
-	padding: 4rem;
+	padding: 9rem 4rem;
 	// more or less reasonable default probably
-	font-size: 8rem;
+	font-family: 'SOAUI';
+	font-size: 10rem;
+	color:white;
+}
+
+main {
+	max-width: 256rem;
+	margin: 0 auto;
 }
 
 // aren't text boxes fun
@@ -181,7 +193,8 @@ body {
 		// box shadows because pixelated round corners are hard, so we subtract
 		// that margin
 		width: 224rem;
-		height: 34rem;
+		min-height: 34rem;
+		max-width: calc(100vw - 34rem);
 
 		// get the slightly off-white region around the text
 		box-shadow:
@@ -200,7 +213,8 @@ body {
 		// font setup
 		font-family: "SOADialogue";
 		// font exported with 10px ascenders, 2px descenders
-		font-size: calc((10 + 2) * 1rem);
+		font-size: 12rem;
+
 		// trying our goddamn best to make the browser render the pixel font
 		// correctly, except i dont think this actually helps lol
 		// text-rendering: geometricPrecision;
