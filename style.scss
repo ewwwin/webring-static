@@ -1,0 +1,240 @@
+// dialogue font (the taller one)
+@font-face {
+	font-family: "SOADialogue";
+	src: url("https://i.eritbh.me/temp/SOADialogue-10-2-6.ttf") format(truetype);
+}
+
+:root {
+	// rendering scale
+	--pixel-scale: 2;
+
+	// 1rem = 1 source pixel at the current render scale
+	font-size: calc(var(--pixel-scale) * 1px);
+
+
+	// some other bullshit
+	--gradient-horiz-stripes: repeating-linear-gradient(to bottom,
+		#1d6c5a,
+		#1d6c5a 2rem,
+		#025a49 2rem,
+		#025a49 4rem
+	);
+}
+
+// i don't need eyes anyway (transparency spotting)
+body {
+	background: var(--gradient-horiz-stripes);
+	min-height: 100vh;
+	margin: 0;
+	padding: 4rem;
+	// more or less reasonable default probably
+	font-size: 8rem;
+}
+
+// aren't text boxes fun
+.textbox {
+	// i cannot believe there is no better way to do this than
+	// - inline-block, or
+	// - shove it in a flex container (which i won't do because we have enough
+	//   containers)
+	display: inline-block;
+
+	// Most of the text box styles in the game are just recolors of the same
+	// thing
+	&--simple {
+		// Variables for all the different colors
+		--textbox-bg: #FFFFFF;
+		--textbox-bg-fade: #F7F7EF;
+		--textbox-text-color: #424231;
+		--textbox-text-shadow: #C6C6B5;
+
+		// make room for the handles which are `position:absolute`'d outside
+		// this box
+		margin: 0 9rem;
+
+		// set up basic frame of inner section
+		border: 1rem solid var(--textbox-border-outer);
+		background: var(--textbox-border-inner);
+
+		// who's ready for position shenanigans
+		position: relative;
+
+		// box handles
+		&::before,
+		&::after {
+			content: "";
+			display: block;
+			background: var(--textbox-handle-bg);
+			position: absolute;
+			top: 0;
+			bottom: 0;
+
+			// styles for left and right curves are present on both handles, but
+			// they're layered behind the main box
+			z-index: -1;
+
+			// width cannot be lower than this because we need to be able to
+			// shrink the box shadow of the element at least two stages without
+			// it disappearing entirely in order to make the rounded corners
+			// work
+			width: 7rem;
+
+			// hell world
+			box-shadow:
+			// background extensions
+			3rem 0 0 -1rem var(--textbox-handle-bg),
+			-3rem 0 0 -1rem var(--textbox-handle-bg),
+
+			6rem 0 0 -3rem var(--textbox-handle-bg),
+			-6rem 0 0 -3rem var(--textbox-handle-bg),
+
+			// horizontal border segments (very top and bottom)
+			0  1rem 0 0 var(--textbox-handle-border),
+			0 -1rem 0 0 var(--textbox-handle-border),
+
+			// vertical border segments
+			2rem 0 0  0rem var(--textbox-handle-border),
+			-2rem 0 0  0rem var(--textbox-handle-border),
+
+			4rem 0 0 -1rem var(--textbox-handle-border),
+			-4rem 0 0 -1rem var(--textbox-handle-border),
+
+			7rem 0 0 -3rem var(--textbox-handle-border),
+			-7rem 0 0 -3rem var(--textbox-handle-border);
+
+		}
+		&::before {
+			left: 1rem;
+			transform: translateX(-100%);
+			border-right: 0;
+		}
+		&::after {
+			right: 1rem;
+			transform: translateX(100%);
+			border-left: 0;
+		}
+
+		// if this is a selection button, the handles are annoyingly 1 source
+		// pixel wider, and the text region is tiny and empty
+		&.textbox--theme-button {
+			margin: 0 10rem;
+
+			&::before {
+				left: 0;
+			}
+			&::after {
+				right: 0;
+			}
+
+			.textbox__text {
+				width: 14rem;
+				height: 10rem;
+			}
+		}
+	}
+
+	// #region .textbox--simple color variants
+	&--yellow {
+		--textbox-border-outer: #7B6321;
+		--textbox-border-inner: #A58429;
+		--textbox-handle-bg: #FFB539;
+		--textbox-handle-border: #AD8400;
+	}
+	&--red {
+		--textbox-border-outer: #632921;
+		--textbox-border-inner: #7B3129;
+		--textbox-handle-bg: #C63908;
+		--textbox-handle-border: #9C3108;
+	}
+	&--green {
+		--textbox-border-outer: #215A18;
+		--textbox-border-inner: #216318;
+		--textbox-handle-bg: #42AD31;
+		--textbox-handle-border: #297321;
+	}
+	&--blue {
+		--textbox-border-outer: #084263;
+		--textbox-border-inner: #085284;
+		--textbox-handle-bg: #1084C6;
+		--textbox-handle-border: #005A94;
+	}
+	&--gray {
+		--textbox-border-outer: #4A4242;
+		--textbox-border-inner: #5A5A52;
+		--textbox-handle-bg: #7B7B73;
+		--textbox-handle-border: #5E5E55;
+	}
+	&--pink {
+		--textbox-border-outer: #CE394A;
+		--textbox-border-inner: #E76B6B;
+		--textbox-handle-bg: #F79CA5;
+		--textbox-handle-border: #EF6B7B;
+	}
+	// #endregion
+
+	// Text inside the text box
+	&__text {
+		// offset by a bit to leave room for the rounded corners we do via box
+		// shadow
+		margin: 2rem;
+		// in game this region is 228x38, but again, part of that is done via
+		// box shadows because pixelated round corners are hard, so we subtract
+		// that margin
+		width: 224rem;
+		height: 34rem;
+
+		// get the slightly off-white region around the text
+		box-shadow:
+			       0     2rem 0 -1rem var(--textbox-bg-fade),
+			       0    -2rem 0 -1rem var(--textbox-bg-fade),
+			       2rem  0    0 -1rem var(--textbox-bg-fade),
+			      -2rem  0    0 -1rem var(--textbox-bg-fade),
+			inset  0     0    0  1rem var(--textbox-bg-fade);
+
+		// the innermost part with the text is just white
+		background: var(--textbox-bg);
+
+		// text still needs to be offset a bit from left/right
+		padding: 0 1rem;
+
+		// font setup
+		font-family: "SOADialogue";
+		// font exported with 10px ascenders, 2px descenders
+		font-size: calc((10 + 2) * 1rem);
+		// trying our goddamn best to make the browser render the pixel font
+		// correctly, except i dont think this actually helps lol
+		// text-rendering: geometricPrecision;
+
+		// text colors and shadow - `.textbox__span`'s use the same logic but
+		// change the colors via variables
+		&, .textbox__span {
+			color: var(--textbox-text-color);
+			text-shadow:
+				1rem 0    var(--textbox-text-shadow),
+				1rem 1rem var(--textbox-text-shadow),
+				0    1rem var(--textbox-text-shadow);
+		}
+	}
+}
+
+// custom text colors in text boxes
+.textbox__span {
+	&--red {
+		--textbox-text-color: #C54700;
+		--textbox-text-shadow: #EFC6A5;
+	}
+
+	&--blue {
+		--textbox-text-color: #6352FF;
+		--textbox-text-shadow: #CEC6F7;
+	}
+}
+
+// misc shit
+.theme-options-grid {
+	display: flex;
+	flex-wrap: wrap;
+	width: 186rem;
+	gap: 8rem 6rem;
+	padding: 4rem 3rem;
+}
