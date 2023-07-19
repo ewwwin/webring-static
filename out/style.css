@@ -207,5 +207,9 @@ ul {
 .silly-little-images img {
   image-rendering: crisp-edges;
 }
+.silly-little-images :first-child {
+  margin-inline-end: -6rem;
+  margin-bottom: -5rem;
+}
 
 /*# sourceMappingURL=style.css.map */

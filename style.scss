@@ -357,4 +357,9 @@ ul {
 		// transform: scale(calc(100% * var(--pixel-scale)));
 		// transform-origin: bottom;
 	}
+
+	:first-child {
+		margin-inline-end: -6rem;
+		margin-bottom: -5rem;
+	}
 }
