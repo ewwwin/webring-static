@@ -40,7 +40,7 @@ body {
 	background: var(--gradient-horiz-stripes);
 	min-height: 100vh;
 	margin: 0;
-	padding: 9rem 4rem;
+	padding-block: 9rem;
 	// more or less reasonable default probably
 	font-family: 'SOAUI';
 	font-size: 10rem;
@@ -48,7 +48,8 @@ body {
 }
 
 main {
-	max-width: 256rem;
+	max-width: 250rem;
+	padding-inline: 3rem;
 	margin: 0 auto;
 }
 
