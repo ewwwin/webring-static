@@ -338,11 +338,15 @@ ul {
 	list-style-type: "·   ";
 }
 
-// misc shit
-.theme-options-grid {
+.silly-little-images {
 	display: flex;
-	flex-wrap: wrap;
-	width: 186rem;
-	gap: 8rem 6rem;
-	padding: 4rem 3rem;
+	justify-content: center;
+	align-items: flex-end;
+	margin-bottom: 1em;
+
+	img {
+		image-rendering: crisp-edges;
+		// transform: scale(calc(100% * var(--pixel-scale)));
+		// transform-origin: bottom;
+	}
 }

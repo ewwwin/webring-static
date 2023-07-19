@@ -192,12 +192,14 @@ ul {
   list-style-type: "·   ";
 }
 
-.theme-options-grid {
+.silly-little-images {
   display: flex;
-  flex-wrap: wrap;
-  width: 186rem;
-  gap: 8rem 6rem;
-  padding: 4rem 3rem;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1em;
+}
+.silly-little-images img {
+  image-rendering: crisp-edges;
 }
 
 /*# sourceMappingURL=style.css.map */
