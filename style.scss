@@ -210,6 +210,8 @@ main {
 		// this accounts for a bunch of things including the width of the
 		// handles and the padding of <main>
 		max-width: calc(100vw - 32rem);
+		// do not overflow outside the box
+		overflow-wrap: break-word;
 
 		// get the slightly off-white region around the text
 		box-shadow:
@@ -337,8 +339,11 @@ code {
 	background: #7B7B7BBB;
 }
 
+ul, ol {
+	padding-inline-start: 1em;
+}
 ul {
-	list-style-type: "·   ";
+	list-style-type: "·  ";
 }
 
 .silly-little-images {

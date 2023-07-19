@@ -127,6 +127,7 @@ main {
   width: 224rem;
   min-height: 34rem;
   max-width: calc(100vw - 32rem);
+  overflow-wrap: break-word;
   box-shadow: 0 2rem 0 -1rem var(--textbox-bg-fade), 0 -2rem 0 -1rem var(--textbox-bg-fade), 2rem 0 0 -1rem var(--textbox-bg-fade), -2rem 0 0 -1rem var(--textbox-bg-fade), inset 0 0 0 1rem var(--textbox-bg-fade);
   background: var(--textbox-bg);
   padding: 0 1rem;
@@ -189,8 +190,12 @@ code {
   background: rgba(123, 123, 123, 0.7333333333);
 }
 
+ul, ol {
+  padding-inline-start: 1em;
+}
+
 ul {
-  list-style-type: "·   ";
+  list-style-type: "·  ";
 }
 
 .silly-little-images {
