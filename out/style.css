@@ -126,7 +126,7 @@ main {
   margin: 2rem;
   width: 224rem;
   min-height: 34rem;
-  max-width: calc(100vw - 34rem);
+  max-width: calc(100vw - 32rem);
   box-shadow: 0 2rem 0 -1rem var(--textbox-bg-fade), 0 -2rem 0 -1rem var(--textbox-bg-fade), 2rem 0 0 -1rem var(--textbox-bg-fade), -2rem 0 0 -1rem var(--textbox-bg-fade), inset 0 0 0 1rem var(--textbox-bg-fade);
   background: var(--textbox-bg);
   padding: 0 1rem;

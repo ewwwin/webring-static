@@ -207,7 +207,9 @@ main {
 		// that margin
 		width: 224rem;
 		min-height: 34rem;
-		max-width: calc(100vw - 34rem);
+		// this accounts for a bunch of things including the width of the
+		// handles and the padding of <main>
+		max-width: calc(100vw - 32rem);
 
 		// get the slightly off-white region around the text
 		box-shadow:
