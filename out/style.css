@@ -130,6 +130,40 @@ main {
   color: var(--textbox-text-color);
   text-shadow: 1rem 0 var(--textbox-text-shadow), 1rem 1rem var(--textbox-text-shadow), 0 1rem var(--textbox-text-shadow);
 }
+.textbox__advance {
+  --background: #FFF;
+  --border: #000;
+  --shadow: #42424A;
+  position: absolute;
+  bottom: 8rem;
+  right: -6rem;
+  width: 2rem;
+  height: 2rem;
+  background: var(--background);
+  box-shadow: -1rem 0 var(--background), -2rem -2rem var(--background), -1rem -2rem var(--background), 1rem -2rem var(--background), -0.5rem 1.5rem 0 -0.5rem var(--background), -0.5rem 2.5rem 0 -0.5rem var(--background), -2.5rem -2.5rem 0 0.5rem var(--border), 1.5rem -2.5rem 0 0.5rem var(--border), 0 -3rem 0 0 var(--border), -2rem 0 var(--border), 1rem 0 var(--border), -1rem 2rem var(--border), 0 2rem var(--border), -0.5rem 3.5rem 0 -0.5rem var(--border), -1.5rem -1.5rem 0 0.5rem var(--shadow), 2.5rem -1.5rem 0 0.5rem var(--shadow), 1rem -2rem 0 0 var(--shadow), -1rem 1rem var(--shadow), 2rem 1rem var(--shadow), 0 3rem var(--shadow), 1rem 3rem var(--shadow), 0.5rem 4.5rem 0 -0.5rem var(--shadow);
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-1rem);
+  }
+  50% {
+    transform: translateY(-2rem);
+  }
+  75% {
+    transform: translateY(-1rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media not (prefers-reduced-motion) {
+  .textbox__advance {
+    animation: 0.6666666667s steps(1) bounce infinite;
+  }
+}
 
 .textbox__span--red {
   --textbox-text-color: #C54700;
