@@ -10,13 +10,59 @@
 		<main>
 			<div class="textbox textbox--simple textbox--yellow">
 				<div class="textbox__text">
-					Welcome to <span class="textbox__span textbox__span--red">webring.umbreon.online</span>!
+					Welcome to <span class="color color--red">webring.umbreon.online</span>!
 				</div>
 				<div class="textbox__advance"></div>
 			</div>
 
 			<p>
-				This is a webring for some friends.
+				This is a simple webring for some friends. This page will have
+				more information in the future, but Erin is busy obsessing over
+				the design so it might be a while.
+			</p>
+			<p>
+				Here's everyone who participates:
+			</p>
+			<ul>
+				<li><a href="https://loveshock.xyz">loveshock.xyz</a></li>
+				<li><a href="https://starshines.gay">starshines.gay</a></li>
+				<li><a href="https://tempest.dev">tempest.dev</a></li>
+				<li><a href="https://interestingzinc.xyz">interestingzinc.xyz</a></li>
+			</ul>
+			<p>
+				For webring participants:
+			</p>
+			<ul>
+				<li>
+					You can view the full URL registered for your site by
+					checking <a href="https://webring.umbreon.online/list">
+					<code>/list</code></a>.
+				</li>
+				<li>
+					Link to the previous and next site in the ring with
+					<code>/prev</code> and <code>next</code>. Both of these
+					endpoints expect a query parameter `from` whose value should
+					be the full URL of your site as shown in <code>/list</code>,
+					including the scheme (http/https), optionally URI encoded.
+					For example:
+					<code>https://webring.umbreon.online/prev?from=https://mysite.xyz</code>.
+				</li>
+				<li>
+					If you need to change your registration or something, ping
+					Erin on Discord or something.
+				</li>
+			</ul>
+			<p>
+				Running <a href="https://git.ewin.moe/erin/webring">a webring
+				server written in half an hour</a>. Source of this homepage
+				<a href="https://git.ewin.moe/erin/webring-static">is also
+				available</a>. Both are licensed under WTFPL.
+			</p>
+			<p>
+				Admin: <a href="https://tired.umbreon.online/@erin">
+				@erin@tired.umbreon.online</a><br>
+				Security: <a href="mailto:security@ewin.moe">
+				security@ewin.moe</a>
 			</p>
 		</main>
 	</body>

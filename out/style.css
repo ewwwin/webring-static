@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "SOADialogue";
   src: url("font/SOADialogue.ttf") format(truetype);
@@ -17,6 +18,11 @@
   );
 }
 
+.color, .textbox__text {
+  color: var(--text-color);
+  text-shadow: 1rem 0 var(--text-shadow), 1rem 1rem var(--text-shadow), 0 1rem var(--text-shadow);
+}
+
 body {
   background: var(--gradient-horiz-stripes);
   min-height: 100vh;
@@ -34,12 +40,12 @@ main {
 
 .textbox {
   display: inline-block;
+  --text-color: #424231;
+  --text-shadow: #C6C6B5;
 }
 .textbox--simple {
   --textbox-bg: #FFFFFF;
   --textbox-bg-fade: #F7F7EF;
-  --textbox-text-color: #424231;
-  --textbox-text-shadow: #C6C6B5;
   margin: 0 9rem;
   border: 1rem solid var(--textbox-border-outer);
   background: var(--textbox-border-inner);
@@ -126,10 +132,6 @@ main {
   font-family: "SOADialogue";
   font-size: 12rem;
 }
-.textbox__text, .textbox__text .textbox__span {
-  color: var(--textbox-text-color);
-  text-shadow: 1rem 0 var(--textbox-text-shadow), 1rem 1rem var(--textbox-text-shadow), 0 1rem var(--textbox-text-shadow);
-}
 .textbox__advance {
   --background: #FFF;
   --border: #000;
@@ -165,13 +167,29 @@ main {
   }
 }
 
-.textbox__span--red {
-  --textbox-text-color: #C54700;
-  --textbox-text-shadow: #EFC6A5;
+.color--red {
+  --text-color: #C54700;
+  --text-shadow: #EFC6A5;
 }
-.textbox__span--blue {
-  --textbox-text-color: #6352FF;
-  --textbox-text-shadow: #CEC6F7;
+.color--blue {
+  --text-color: #6352FF;
+  --text-shadow: #CEC6F7;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1rem;
+  text-underline-offset: 1rem;
+  text-decoration-skip-ink: none;
+}
+
+code {
+  font: inherit;
+  background: rgba(123, 123, 123, 0.7333333333);
+}
+
+ul {
+  list-style-type: "·   ";
 }
 
 .theme-options-grid {

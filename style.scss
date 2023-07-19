@@ -26,6 +26,15 @@
 	);
 }
 
+// helper for applying consistent text style
+%text {
+	color: var(--text-color);
+	text-shadow:
+		1rem 0    var(--text-shadow),
+		1rem 1rem var(--text-shadow),
+		0    1rem var(--text-shadow);
+}
+
 // i don't need eyes anyway (transparency spotting)
 body {
 	background: var(--gradient-horiz-stripes);
@@ -51,14 +60,15 @@ main {
 	//   containers)
 	display: inline-block;
 
+	--text-color: #424231;
+	--text-shadow: #C6C6B5;
+
 	// Most of the text box styles in the game are just recolors of the same
 	// thing
 	&--simple {
 		// Variables for all the different colors
 		--textbox-bg: #FFFFFF;
 		--textbox-bg-fade: #F7F7EF;
-		--textbox-text-color: #424231;
-		--textbox-text-shadow: #C6C6B5;
 
 		// make room for the handles which are `position:absolute`'d outside
 		// this box
@@ -184,6 +194,8 @@ main {
 	}
 	// #endregion
 
+	// TODO: implement the other styles of box frames
+
 	// Text inside the text box
 	&__text {
 		// offset by a bit to leave room for the rounded corners we do via box
@@ -219,15 +231,8 @@ main {
 		// correctly, except i dont think this actually helps lol
 		// text-rendering: geometricPrecision;
 
-		// text colors and shadow - `.textbox__span`'s use the same logic but
-		// change the colors via variables
-		&, .textbox__span {
-			color: var(--textbox-text-color);
-			text-shadow:
-				1rem 0    var(--textbox-text-shadow),
-				1rem 1rem var(--textbox-text-shadow),
-				0    1rem var(--textbox-text-shadow);
-		}
+		// apply text styles (--text-color and --text-shadow are inherited
+		@extend %text;
 	}
 
     &__advance {
@@ -302,16 +307,35 @@ main {
 }
 
 // custom text colors in text boxes
-.textbox__span {
+.color {
+	@extend %text;
+
 	&--red {
-		--textbox-text-color: #C54700;
-		--textbox-text-shadow: #EFC6A5;
+		--text-color: #C54700;
+		--text-shadow: #EFC6A5;
 	}
 
 	&--blue {
-		--textbox-text-color: #6352FF;
-		--textbox-text-shadow: #CEC6F7;
+		--text-color: #6352FF;
+		--text-shadow: #CEC6F7;
 	}
+}
+
+// links do a thing
+a {
+	color: inherit;
+	text-decoration-thickness: 1rem;
+	text-underline-offset: 1rem;
+	text-decoration-skip-ink: none;
+}
+
+code {
+	font: inherit;
+	background: #7B7B7BBB;
+}
+
+ul {
+	list-style-type: "·   ";
 }
 
 // misc shit
