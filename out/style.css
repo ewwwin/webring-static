@@ -32,6 +32,11 @@ body {
   font-size: 10rem;
   color: white;
 }
+@media (prefers-reduced-motion) {
+  body {
+    background-attachment: fixed;
+  }
+}
 
 main {
   max-width: 250rem;
