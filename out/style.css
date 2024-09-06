@@ -138,6 +138,7 @@ main {
   padding: 0 1rem;
   font-family: "SOADialogue";
   font-size: 12rem;
+  font-weight: normal;
 }
 .textbox__advance {
   --background: #FFF;
@@ -215,6 +216,25 @@ ul {
 .silly-little-images :first-child {
   margin-inline-end: -6rem;
   margin-bottom: -5rem;
+}
+
+.eightyeightbythirtyones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: calc(2px * var(--pixel-scale));
+  gap: calc(2px * var(--pixel-scale));
+}
+.eightyeightbythirtyones img {
+  display: block;
+  box-shadow: 0 0 0 calc(1px * var(--pixel-scale)) rgba(255, 255, 255, 0.5);
+}
+
+small {
+  display: inline-block;
+  font-size: 10px;
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=style.css.map */
