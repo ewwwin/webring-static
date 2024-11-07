@@ -230,10 +230,4 @@ ul {
   box-shadow: 0 0 0 calc(1px * var(--pixel-scale)) rgba(255, 255, 255, 0.5);
 }
 
-small {
-  display: inline-block;
-  font-size: 10px;
-  line-height: 1.5;
-}
-
 /*# sourceMappingURL=style.css.map */
